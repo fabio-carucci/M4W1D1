@@ -24,8 +24,7 @@ NOTA: tutti gli esercizi devono essere svolti usando le funzioni
 
 1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa.
 2. Controlla che due stringhe passate come parametri siano gli anagrammi l'una dell'altra. Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. Se le due parole sono anagrammi, ritorna true', altrimenti ritorna false'.
-3. Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), ritorna un nuovo array contenente
-tutti gli anagrammi corretti della parola data.
+3. Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
 Per esempio, partendo da "cartine" e ["carenti", "incerta", "espatrio"], il valore ritornato deve essere ["carenti", "incerta"].
 4. Partendo da una stringa passata come parametro, ritorna 'true' se la stringa è palindroma o 'false se non lo è.
 5. Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario. Es. 189 → 981

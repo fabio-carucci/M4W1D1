@@ -75,25 +75,25 @@
 // Angolo piatto: 180° → ritorna "piatto"
 
 // function typeOfDegree(degrees) {
-//     let tipo = "";
+//     let type = "";
   
 //     switch (true) {
 //       case degrees < 90:
-//         tipo = "acuto";
+//         type = "acuto";
 //         break;
 //       case degrees === 90:
-//         tipo = "retto";
+//         type = "retto";
 //         break;
 //       case degrees > 90 && degrees < 180:
-//         tipo = "ottuso";
+//         type = "ottuso";
 //         break;
 //       case degrees === 180:
-//         tipo = "piatto";
+//         type = "piatto";
 //         break;
 //       default:
-//         tipo = "unclassified";
+//         type = "unclassified";
 //     }
-//     return tipo;
+//     return type;
 // }
   
 // console.log(typeOfDegree(54));   
@@ -120,3 +120,225 @@
 
 // let frase = "Fabio Carucci compagnia di viaggi";
 // console.log(creaAcronimo(frase)); 
+
+// Esercizi EXTRA:
+// _______________
+
+// ESERCIZIO 1:
+// Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa.
+
+// function checkCarattere (stringa) {
+//     let frequenzaCaratteri = {};
+  
+//     for (let carattere of stringa) {
+//       if (carattere in frequenzaCaratteri) {
+//         frequenzaCaratteri[carattere]++;
+//       } else {
+//         frequenzaCaratteri[carattere] = 1;
+//       }
+//     }
+  
+//     let caratterePiùFrequente = "";
+//     let frequenzaMassima = 0;
+  
+//     for (let carattere in frequenzaCaratteri) {
+//       if (frequenzaCaratteri[carattere] > frequenzaMassima) {
+//         frequenzaMassima = frequenzaCaratteri[carattere];
+//         caratterePiùFrequente = carattere;
+//       }
+//     }
+  
+//     return caratterePiùFrequente;
+// }
+
+// console.log(checkCarattere("efhijcebicebhicbhcbhchicehuiwcdodwowkwkwkwrufbnc")); 
+
+// ESERCIZIO 2: 
+// Controlla che due stringhe passate come parametri siano gli anagrammi l'una dell'altra. 
+// Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. 
+// Se le due parole sono anagrammi, ritorna true', altrimenti ritorna false'.
+
+// function anagramma(string1, string2) {
+//     // Controllo in prima battuta se le parole hanno lo stesso numero di caratteri 
+//     if (string1.length !== string2.length) { 
+//         return "Sono due parole di lunghezza differente, non saranno mai anagrammi l'uno dell'altro!";
+//     }
+
+//     // Ignoro i caratteri maiuscoli rendendo tutto minuscolo
+//     string1 = string1.toLowerCase();
+//     string2 = string2.toLowerCase();
+
+//     let frequenzaCaratteri1 = {};
+//     let frequenzaCaratteri2 = {};
+
+//     // Controlla quali e quanti sono i caratteri nella stringa 1
+//     for (let char of string1) {
+//         if (char in frequenzaCaratteri1) {
+//             frequenzaCaratteri1[char]++;
+//         } else {
+//             frequenzaCaratteri1[char] = 1;
+//         }
+//     }
+//     // Controlla quali e quanti sono i caratteri nella stringa 2
+//     for (let char of string2) {
+//         if (char in frequenzaCaratteri2) {
+//             frequenzaCaratteri2[char]++;
+//         } else {
+//             frequenzaCaratteri2[char] = 1;
+//         }
+//     }
+
+//     //Questo ciclo itera all'interno del primo oggetto, se quella proprietà esiste anche nel secondo oggetto procede e 
+//     //controlla se entrambi hanno anche lo stesso valore.
+//     let charUguali = 0;
+
+//     for (let char in frequenzaCaratteri1) {
+//         if (char in frequenzaCaratteri2) {
+//             if (frequenzaCaratteri1[char] === frequenzaCaratteri2[char]) {
+//                 charUguali++;
+//             }
+//         }
+//     }
+//     //Se il valore di charUguali è uguale al numero di caratteri unici presenti nella prima stringa vuol dire che le due parole
+//     //sono anagrammi l'uno dell'altra
+//     return (charUguali === Object.keys(frequenzaCaratteri1).length);
+// }
+
+// console.log(anagramma("tiziano", "notizia"));
+
+// ESERCIZIO 3:
+// Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), 
+// ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
+// Per esempio, partendo da "cartine" e ["carenti", "incerta", "espatrio"], 
+// il valore ritornato deve essere ["carenti", "incerta"].
+
+// function anagrammiCheck(string, array) {
+//     // Ignoro i caratteri maiuscoli rendendo tutto minuscolo
+//     string = string.toLowerCase();
+
+//     let frequenzaCaratteriString = {};
+//     let newArray = [];
+
+//     // Controlla quali e quanti sono i caratteri nella stringa
+//     for (let char of string) {
+//         if (char in frequenzaCaratteriString) {
+//             frequenzaCaratteriString[char]++;
+//         } else {
+//             frequenzaCaratteriString[char] = 1;
+//         }
+//     }
+
+//     //Itera all'interno dell'array e controlla se ogni stringa è un'anagramma
+//     for (let element of array) {
+//         element = element.toLowerCase();
+//         let frequenzaCaratteriArray = {};
+
+//         for (let char of element) {
+//             if (char in frequenzaCaratteriArray) {
+//                 frequenzaCaratteriArray[char]++;
+//             } else {
+//                 frequenzaCaratteriArray[char] = 1;
+//             }
+//         }
+//         let charUguali = 0;
+
+//         for (let char in frequenzaCaratteriString) {
+//             if (char in frequenzaCaratteriArray) {
+//                 if (frequenzaCaratteriString[char] === frequenzaCaratteriArray[char]) {
+//                     charUguali++;
+//                 }
+//             }
+//         }
+
+//         //Se la stringa nell'array è un'anagramma inseriscilo all'interno del nuovo array contenente solo anagrammi
+//         if (charUguali === Object.keys(frequenzaCaratteriString).length) {
+//             newArray.push(element);
+//         }
+//     }
+//     return newArray;
+// }
+
+// let myString = "cartine";
+// let myArray = ["carenti", "incerta", "espatrio"];
+// console.log(anagrammiCheck(myString, myArray));
+
+// ESERCIZIO 4:
+// Partendo da una stringa passata come parametro, ritorna 'true' se la stringa è palindroma o 'false se non lo è.
+
+// function palindroma (string) {
+//     string = string.toLowerCase();
+
+//     for (let i = 0; i < string.length / 2; i++) {
+//         if (string[i] !== string[string.length - 1 - i]) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+// console.log(palindroma("anna"));
+// console.log(palindroma("fabio"));
+
+// ESERCIZIO 5:
+// Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, 
+// ma in ordine contrario. Es. 189 → 981
+
+// function numeroContrario (num) {
+//     let myNum = "" + num;
+//     let newNum = "";
+
+//     for (let i = myNum.length - 1; i >= 0 ; i--) {
+//         newNum += myNum[i];
+//     }
+//     return parseInt(newNum);
+// }
+
+// console.log(numeroContrario(9432));
+
+// ESERCIZIO 6:
+// 6. Scrivi una funzione che accetti un numero positivo X come parametro. 
+// La funzione dovrebbe stampare a console una "scala" creata con il carattere "#" e avente X scalini.
+// Es.
+// X=2
+// #
+// ##
+// X=3
+// #
+// ##
+// ###
+
+// function scala(Scalini) {
+//     for (let i = 1; i <= Scalini; i++) {
+//         let scala = '';
+
+//         for (let j = 0; j < i; j++) {
+//             scala += '#';
+//         }
+
+//         console.log(scala);
+//     }
+// }
+
+// scala(2);
+// scala(3);
+// scala(10);
+
+// ESERCIZIO 7:
+// Crea una funzione che, data una stringa come parametro, ritorni la stessa stringa, ma al contrario. Es. "Ciao" ****→ "oaiC"
+
+// function stringaAlContrario (string) {
+//     let newString = "";
+
+//     for (let i = string.length - 1; i >= 0 ; i--) {
+//         newString += string[i];
+//     }
+//     return newString;
+// }
+
+// console.log(stringaAlContrario("Ciao"));
+
+// ESERCIZIO 8:
+// Crea una funzione che accetti un array e un numero Y come parametro. Dividi l'array in sotto-array aventi lunghezza Y.
+// Es. array: [1, 2, 3, 4], y: 2 → [[ 1, 2], [3, 4]]
+// array: [1, 2, 3, 4, 5], y: 4 → [[ 1, 2, 3, 4], [5]]
+
