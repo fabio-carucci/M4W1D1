@@ -342,3 +342,53 @@
 // Es. array: [1, 2, 3, 4], y: 2 → [[ 1, 2], [3, 4]]
 // array: [1, 2, 3, 4, 5], y: 4 → [[ 1, 2, 3, 4], [5]]
 
+// function dividiArray(array, lunghezza) {
+//     let finalArray = [];
+
+//     for (let i = 0; i < array.length; i += lunghezza) {
+//         let sottoArray = array.slice(i, i + lunghezza);
+//         finalArray.push(sottoArray);
+//     }
+
+//     return finalArray;
+// }
+
+// let myArr = [1, 2, 3, 4];
+// let myArr2 = [1, 2, 3, 4, 5]
+// console.log(dividiArray(myArr, 2));
+// console.log(dividiArray(myArr2, 4));
+
+// ESERCIZIO 9: 
+// Scrivi una funzione che accetti un numero positivo X come parametro. La funzione dovrebbe stampare a console una "piramide"
+// create con il carattere "#" e avente X strati.
+// Es.
+// X=3
+//   #
+//  ###
+// #####
+
+// function piramide(strati) {
+//     for (let i = 1; i <= strati; i++) {
+//         let spazi = ' '.repeat(strati - i);
+//         let hashtags = '#'.repeat(2 * i - 1);
+//         console.log(spazi + hashtags);
+//     }
+// }
+
+// piramide(3);
+// piramide(7);
+
+// ESERCIZIO 10: 
+// Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
+// Es. N= 2
+// [[1, 2],
+//  [4, 3]]
+// N= 3
+// [[1, 2, 3],
+//  [8, 9, 4],
+//  [7, 6, 5]]
+// N = 4
+// [[1,   2,  3, 4],
+//  [12, 13, 14, 5],
+//  [11, 16, 15, 6],
+//  [10,  9,  8, 7]]
